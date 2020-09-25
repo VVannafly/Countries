@@ -28,8 +28,9 @@ class CBodyLabel: UILabel {
         textColor = .secondaryLabel
         font = UIFont.preferredFont(forTextStyle: .body)
         adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.75
-        lineBreakMode = .byWordWrapping
+        minimumScaleFactor = 0.80
+        lineBreakMode = .byClipping
+        numberOfLines = 3
         translatesAutoresizingMaskIntoConstraints = false
     }
 }
