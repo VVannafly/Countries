@@ -12,7 +12,7 @@ class CountryCell: UITableViewCell {
     static let reuseId = "CountryCell"
     
     let nameLabel = CTitleLable(textAlignment: .left, fontSize: 16)
-    let codeLabel = CBodyLabel(textAlignment: .left)
+    let codeLabel = CBodyLabel(textAlignment: .right)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,19 +33,18 @@ class CountryCell: UITableViewCell {
         addSubview(codeLabel)
         
         accessoryType = .disclosureIndicator
-        let padding: CGFloat = 5
+        let padding: CGFloat = 8
         
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
-            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -75),
             nameLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            codeLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: padding),
-            codeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
-            codeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            codeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            codeLabel.bottomAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            codeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
             codeLabel.heightAnchor.constraint(equalToConstant: 16)
         ])
     }
-
 }
