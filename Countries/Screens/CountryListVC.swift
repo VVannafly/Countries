@@ -9,7 +9,8 @@ import UIKit
 
 class CountryListVC: UIViewController {
 
-    let tableView = UITableView()
+    var tableView: UITableView!
+    
     var countries: [CountryList] = []
     var filteredCountries: [CountryList] = []
     
@@ -35,6 +36,7 @@ class CountryListVC: UIViewController {
     }
     
     func configureTableView() {
+        tableView = UITableView(frame: view.bounds, style: .grouped)
         view.addSubview(tableView)
         
         tableView.frame = view.bounds
