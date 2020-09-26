@@ -21,7 +21,7 @@ class CountryPopulationInfoVC: UIViewController {
             self.country = country
             var languages = ""
             var currencies = ""
-            country.languages.map{ languages.append($0.nativeName + "  ") } //Change it
+            country.languages.map{ languages.append($0.nativeName + "  ") }             //Change it
             country.currencies.map{ currencies.append($0.name + "  ") }
             itemInfoViewOne.set(nameLabel: "Population", value: String(country.population))
             itemInfoViewTwo.set(nameLabel: "Languages", value: languages)

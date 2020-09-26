@@ -13,6 +13,7 @@ class CountryInfoVC: UIViewController {
     
     let headerView = UIView()
     let itemViewOne = UIView()
+    let itemViewTwo = UIView()
     var itemViews: [UIView] = []
     
     override func viewDidLoad() {
@@ -36,30 +37,27 @@ class CountryInfoVC: UIViewController {
                 }
                 
             case .failure(let error):
-                print( error)
+                print(error)
                 
             }
         }
     }
     
     func configureUIElements(with country: CountryInfo) {
-//        let repoItemVC = GFRepoItemVC(user: user)
-//        repoItemVC.delegate = self
-//
-//        let followerItemVC = GFFollowerItemVC(user:user)
-//        followerItemVC.delegate = self
-        
+
+        self.title = country.name
         self.add(childVC: CountryInfoHeaderVC(country: country), to: self.headerView)
         self.add(childVC: CountryPopulationInfoVC(country: country), to: self.itemViewOne)
-//        self.add(childVC: followerItemVC, to: self.itemViewTwo)
-//        self.dateLabel.text = "GitHub since \(user.createdAt.convertToDisplayFormat())"
+        self.add(childVC: BoundariesVC(country: country), to: self.itemViewTwo)
+        
     }
     
     func layoutUI() {
-        let padding: CGFloat = 20
-//        let itemHeight: CGFloat = 140
         
-        itemViews = [headerView, itemViewOne] // itemViewOne, itemViewTwo, dateLabel
+        let padding: CGFloat = 20
+        //        let itemHeight: CGFloat = 140
+        
+        itemViews = [headerView, itemViewOne, itemViewTwo] // itemViewOne, itemViewTwo, dateLabel
         
         for itemView in itemViews {
             view.addSubview(itemView)
@@ -79,11 +77,9 @@ class CountryInfoVC: UIViewController {
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
             itemViewOne.heightAnchor.constraint(equalToConstant: 200),
             //
-            //            itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
-            //            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
-            //
-            //            dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
-            //            dateLabel.heightAnchor.constraint(equalToConstant: 18)
+            itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
+            itemViewTwo.heightAnchor.constraint(equalToConstant: 250),
+
         ])
     }
     

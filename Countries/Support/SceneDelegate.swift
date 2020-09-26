@@ -18,7 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        
         window?.rootViewController = createCountryNC()
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
